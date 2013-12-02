@@ -1,0 +1,32 @@
+{
+  "rating": {
+    "rating": 9,
+    "rating_class": "positive_9",
+    "negative_ratings": [],
+    "positive_ratings": [
+      "Jo",
+      "LW",
+      "Gav",
+      "ⓡⓦ",
+      "ρβ",
+      "Pete",
+      "nick",
+      "PS",
+      "JG"
+    ],
+    "file": "gavin/02006 Mixtapes/20060201/2006 020112 Band of Horses - The Funeral.mp3"
+  },
+  "track": {
+    "artwork_url": "http://ecx.images-amazon.com/images/I/61Tjbkt9NFL.jpg",
+    "rating": 9,
+    "album": "Everything All The Time",
+    "rating_class": "positive_9",
+    "duration": "05:22",
+    "title": "The Funeral",
+    "artist": "Band Of Horses",
+    "dbid": 578,
+    "added_by": "ρβ",
+    "file": "gavin/02006 Mixtapes/20060201/2006 020112 Band of Horses - The Funeral.mp3"
+  },
+  "time": "0"
+}
