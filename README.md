@@ -1,6 +1,6 @@
 # KyanJukebox
 
-TODO: Write a gem description
+A RubyGem to handle messages from the Kyan jukebox Websocket server
 
 ## Installation
 
@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+<pre>
+jukebox = KyanJukebox::Notify.new([:track])
+jukebox.json_parser = JSON
+jukebox.notifications
+[...]
+</pre>
 
 ## Contributing
 
