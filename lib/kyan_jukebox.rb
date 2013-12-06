@@ -1,16 +1,21 @@
-afile = File.join(File.dirname(__FILE__), 'kyan_jukebox/notify.rb')
-files = File.join(File.dirname(__FILE__), 'kyan_jukebox/modules/*.rb')
+fs = [
+  'kyan_jukebox/modules/base.rb',
+  'kyan_jukebox/modules/track.rb',
+  'kyan_jukebox/modules/playlist.rb',
+  'kyan_jukebox/modules/rating.rb',
+  'kyan_jukebox/notify.rb',
+]
 
 if defined?(Motion::Project::Config)
   Motion::Project::App.setup do |app|
-    Dir.glob(files).each do |file|
-      app.files.unshift(file)
+    fs.each do |file|
+      f = File.join(File.dirname(__FILE__), file)
+      app.files.unshift(f)
     end
-    app.files.unshift(afile)
   end
 else
-  Dir.glob(files).each do |file|
-    require file
-    require afile
+  fs.each do |file|
+    f = File.join(File.dirname(__FILE__), file)
+    require f
   end
 end

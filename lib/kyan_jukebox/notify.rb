@@ -26,7 +26,7 @@ module KyanJukebox
 
     def method_missing(meth, *args, &block)
       if @active_keys.include?(meth.to_sym)
-        Object.const_get(meth.to_s.capitalize).new(fetch(meth.to_sym))
+        KyanJukebox.const_get(meth.to_s.capitalize).new(fetch(meth.to_sym))
       else
         super
       end
