@@ -99,4 +99,10 @@ describe "Jukebox Notifications" do
       @notify.rating.rating.should == 1
     end
   end
+
+  context "A Tracklist" do
+    before do
+      @notify.update!( fetch('playlist') )
+    end
+  end
 end
