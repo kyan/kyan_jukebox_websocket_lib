@@ -11,11 +11,6 @@ module KyanJukebox
       end
     end
 
-    def self.build(hsh)
-      return nil if hsh.nil?
-      new(hsh)
-    end
-
     def heading
       nil
     end
@@ -26,6 +21,10 @@ module KyanJukebox
 
     def description
       nil
+    end
+
+    def inspect
+      "<#{self.class.name}>"
     end
   end
 end

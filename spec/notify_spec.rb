@@ -8,7 +8,7 @@ describe "Jukebox Notifications" do
   end
 
   before do
-    @notify = Notify.new([:track, :rating])
+    @notify = Notify.new([:track, :rating, :playlist])
     @notify.json_parser = JSON
   end
 
@@ -18,7 +18,8 @@ describe "Jukebox Notifications" do
     end
 
     it "has notifications" do
-      @notify.notifications.should_not be_empty
+      @notify.notifications.size.should == 1
+      @notify.notifications.first.should be_kind_of(Track)
     end
 
     it "should handle track updates" do
@@ -103,6 +104,22 @@ describe "Jukebox Notifications" do
   context "A Tracklist" do
     before do
       @notify.update!( fetch('playlist') )
+    end
+
+    it "should have tracks" do
+      @notify.playlist.size.should == 18
+    end
+
+    it "should have a first track" do
+      track = @notify.playlist.first
+
+      track.title.should == "Dear Sons and Daughters of Hungry Ghosts"
+      track.artist.should == "Wolf Parade"
+      track.artwork_url.should == "http://ecx.images-amazon.com/images/I/51JKRGpkHYL.jpg"
+    end
+
+    it "should have a current track" do
+      @notify.playlist.current_track.should == 'gavin/02006 Mixtapes/20060201/2006 020112 Band of Horses - The Funeral.mp3'
     end
   end
 end
