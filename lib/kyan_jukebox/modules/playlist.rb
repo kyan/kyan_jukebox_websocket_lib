@@ -14,5 +14,9 @@ module KyanJukebox
       tracks.size
     end
 
+    def limit(amount=5)
+      tracks.take(amount)
+    end
+
   end
 end

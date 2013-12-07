@@ -108,6 +108,8 @@ describe "Jukebox Notifications" do
 
     it "should have tracks" do
       @notify.playlist.size.should == 18
+      @notify.playlist.any?.should be_true
+      @notify.playlist.limit(3).size.should == 3
     end
 
     it "should have a first track" do
