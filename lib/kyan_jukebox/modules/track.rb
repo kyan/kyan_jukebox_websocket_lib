@@ -1,5 +1,7 @@
 module KyanJukebox
-  class Track < Base
+  class Track
+    include Base
+
     attr_accessor :title, :artist, :album, :added_by,
                   :dbid, :rating, :file, :duration,
                   :artwork_url, :rating_class

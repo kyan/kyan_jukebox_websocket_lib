@@ -1,5 +1,7 @@
 module KyanJukebox
-  class Rating < Base
+  class Rating
+    include Base
+
     attr_accessor :positive_ratings, :rating_class, :negative_ratings,
                   :file, :rating
 

@@ -1,21 +1,12 @@
 module KyanJukebox
-  class Playlist < Base
-    include Enumerable
+  class Playlist < Array
+    include Base
 
     attr_accessor :tracks, :current_track
 
-    def each(&block)
-      tracks.each do |track|
-        block.call( Track.new(track) )
-      end
-    end
-
-    def size
-      tracks.size
-    end
-
-    def limit(amount=5)
-      tracks.take(amount)
+    def initialize(data)
+      super data
+      replace tracks.map {|track| Track.new(track)}
     end
 
   end
