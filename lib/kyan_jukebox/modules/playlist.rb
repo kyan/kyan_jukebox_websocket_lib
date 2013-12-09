@@ -6,7 +6,7 @@ module KyanJukebox
 
     def initialize(data)
       super data
-      replace tracks.map {|track| Track.new(track)}
+      replace tracks.map {|track| Track.new(track)} unless tracks.nil?
     end
 
   end

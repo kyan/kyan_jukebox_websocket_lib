@@ -16,8 +16,7 @@ module KyanJukebox
     end
 
     def update!(payload)
-      parse_payload(payload)
-      refresh_dataset!
+      refresh_dataset! if parse_payload(payload)
     end
 
     def notifications
@@ -32,22 +31,23 @@ module KyanJukebox
       end
     end
 
-    private
-
-    def fetch(key)
-      @data[key]
-    end
-
     def refresh_dataset!
       @whats_changed.clear
 
       VALID_KEYS.each do |key|
         if @json && @json[key.to_s]
-          if @data[key] = @json[key.to_s]
-            @whats_changed << key if @active_keys.index(key)
+          @data[key] = @json[key.to_s]
+          if @data[key] && @active_keys.index(key)
+            @whats_changed << key
           end
         end
       end
+    end
+
+    private
+
+    def fetch(key)
+      @data[key]
     end
 
     def parse_payload(str)
