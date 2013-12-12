@@ -55,11 +55,7 @@ module KyanJukebox
         raise "You need to set a JSON parser. e.g json_parser = 'BW::JSON'"
       end
 
-      begin
-        @json = json_parser.parse(str)
-      rescue => detail
-        print detail.backtrace.join("\n")
-      end
+      @json = json_parser.parse(str)
     end
   end
 end
