@@ -15,7 +15,7 @@ module KyanJukebox
     end
 
     def description
-      [album, duration].compact.join(' - ')
+      album
     end
   end
 end
