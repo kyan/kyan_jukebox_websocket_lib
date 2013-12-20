@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'kyan_jukebox/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "kyan_jukebox"
+  spec.name          = "kyan_jukebox_websocket_lib"
   spec.version       = KyanJukebox::VERSION
   spec.authors       = ["Duncan Robertson"]
   spec.email         = ["duncan@kyan.com"]
