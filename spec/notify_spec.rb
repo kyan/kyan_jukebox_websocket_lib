@@ -26,6 +26,7 @@ describe "Jukebox Notifications" do
       @notify.track.title.should == "Ernest Borgnine"
       @notify.update!( fetch('track') )
       @notify.track.title.should == "Waterloo"
+      @notify.whats_changed.should == [:track]
     end
   end
 
@@ -99,6 +100,10 @@ describe "Jukebox Notifications" do
     it "has an rating" do
       @notify.rating.rating.should == 1
     end
+
+    it "should have changed ratings" do
+      @notify.whats_changed.should == [:rating, :track, :playlist]
+    end
   end
 
   context "A Tracklist" do
@@ -122,6 +127,10 @@ describe "Jukebox Notifications" do
 
     it "should have a current track" do
       @notify.playlist.current_track.should == 'gavin/02006 Mixtapes/20060201/2006 020112 Band of Horses - The Funeral.mp3'
+    end
+
+    it "should have changed ratings" do
+      @notify.whats_changed.should == [:playlist]
     end
   end
 end

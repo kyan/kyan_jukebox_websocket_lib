@@ -2,6 +2,7 @@ module KyanJukebox
   class Notify
 
     attr_accessor :json_parser, :notify_only
+    attr_reader :whats_changed
 
     VALID_KEYS = [
       :state, :time, :rating, :track_added, :track, :playlist, :volume
