@@ -18,10 +18,23 @@ module KyanJukebox
         return "No votes"
       end
 
-      pos = positive_ratings.empty? ? '...' : positive_ratings.join(', ')
-      neg = negative_ratings.empty? ? '...' : negative_ratings.join(', ')
+      [p_ratings, n_ratings].join(' ')
+    end
 
-      "▲ #{pos} ▼ #{neg}"
+    def p_ratings
+      if positive_ratings.any?
+        "▲ #{positive_ratings.join(', ')}"
+      else
+        ""
+      end
+    end
+
+    def n_ratings
+      if negative_ratings.any?
+        "▼ #{negative_ratings.join(', ')}"
+      else
+        ""
+      end
     end
   end
 end
