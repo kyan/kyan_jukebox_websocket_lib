@@ -18,7 +18,7 @@ module KyanJukebox
         return "No votes"
       end
 
-      [p_ratings, n_ratings].join(' ')
+      [p_ratings, n_ratings].join(' ').strip
     end
 
     def p_ratings

@@ -83,6 +83,7 @@ describe "Jukebox Notifications" do
 
     it "has a positive_ratings" do
       @notify.rating.positive_ratings.should == ["Gav"]
+      @notify.rating.p_ratings.should == "▲ Gav"
     end
 
     it "has an rating_class" do
@@ -91,6 +92,7 @@ describe "Jukebox Notifications" do
 
     it "has an negative_ratings" do
       @notify.rating.negative_ratings.should == []
+      @notify.rating.n_ratings.should == ""
     end
 
     it "has an file" do
@@ -101,9 +103,22 @@ describe "Jukebox Notifications" do
       @notify.rating.rating.should == 1
     end
 
-    it "should have changed ratings" do
+    it "has a description" do
+      @notify.rating.description.should == "▲ Gav"
+    end
+
+    it "should have changed items" do
       @notify.whats_changed.should == [:rating, :track, :playlist]
     end
+
+    it "should have changed ratings" do
+      @notify.last_change?(:rating).should be_true
+    end
+
+    it "should not have changed volume" do
+      @notify.last_change?(:volume).should be_false
+    end
+
   end
 
   context "A Tracklist" do

@@ -45,6 +45,10 @@ module KyanJukebox
       end
     end
 
+    def last_change?(key)
+      @whats_changed.include?(key.to_sym)
+    end
+
     private
 
     def fetch(key)
