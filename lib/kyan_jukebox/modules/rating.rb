@@ -14,7 +14,7 @@ module KyanJukebox
     end
 
     def description
-      if positive_ratings.empty? && negative_ratings.empty?
+      if positive_ratings && positive_ratings.empty? && negative_ratings && negative_ratings.empty?
         return "No votes"
       end
 
@@ -22,7 +22,7 @@ module KyanJukebox
     end
 
     def p_ratings
-      if positive_ratings.any?
+      if positive_ratings && positive_ratings.any?
         "▲ #{positive_ratings.join(', ')}"
       else
         ""
@@ -30,7 +30,7 @@ module KyanJukebox
     end
 
     def n_ratings
-      if negative_ratings.any?
+      if negative_ratings && negative_ratings.any?
         "▼ #{negative_ratings.join(', ')}"
       else
         ""
