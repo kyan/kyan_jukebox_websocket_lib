@@ -8,7 +8,7 @@ describe "Jukebox Notifications" do
   end
 
   before do
-    @notify = Notify.new([:track, :rating, :playlist])
+    @notify = Notify.new([:track, :rating, :playlist, :time])
     @notify.json_parser = JSON
   end
 
@@ -108,7 +108,7 @@ describe "Jukebox Notifications" do
     end
 
     it "should have changed items" do
-      @notify.whats_changed.should == [:rating, :track, :playlist]
+      @notify.whats_changed.should == [:time, :rating, :track, :playlist]
     end
 
     it "should have changed ratings" do
@@ -117,6 +117,10 @@ describe "Jukebox Notifications" do
 
     it "should not have changed volume" do
       @notify.last_change?(:volume).should be_false
+    end
+
+    it "should have time" do
+      @notify.time.should == '40'
     end
 
   end
@@ -145,7 +149,21 @@ describe "Jukebox Notifications" do
     end
 
     it "should have changed ratings" do
-      @notify.whats_changed.should == [:playlist]
+      @notify.whats_changed.should == [:time, :playlist]
+    end
+
+    it "should have time" do
+      @notify.time.should == '114'
+    end
+  end
+
+  context "A Time" do
+    before do
+      @notify.update!( fetch('all') )
+    end
+
+    it "should have time" do
+      @notify.time.should == '40'
     end
   end
 end

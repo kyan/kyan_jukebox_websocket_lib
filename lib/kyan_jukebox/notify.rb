@@ -1,8 +1,8 @@
-module KyanJukebox
+ module KyanJukebox
   class Notify
 
     attr_accessor :json_parser, :notify_only
-    attr_reader :whats_changed
+    attr_reader :whats_changed, :time
 
     VALID_KEYS = [
       :state, :time, :rating, :track_added, :track, :playlist, :volume
@@ -43,6 +43,8 @@ module KyanJukebox
           end
         end
       end
+
+      @time = @data[:time] unless @data[:time].nil?
     end
 
     def last_change?(key)
