@@ -4,7 +4,7 @@ module KyanJukebox
 
     attr_accessor :title, :artist, :album, :added_by,
                   :dbid, :rating, :file, :duration,
-                  :artwork_url, :rating_class
+                  :artwork_url, :rating_class, :eta
 
     def heading
       title
