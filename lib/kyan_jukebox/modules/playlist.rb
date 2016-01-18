@@ -9,8 +9,9 @@ module KyanJukebox
       replace tracks.map {|track| Track.new(track)} unless tracks.nil?
     end
 
-    def upcoming_tracks
-      current_track_index.nil? ? [] : self[current_track_index...-1]
+    def upcoming_tracks(_track=nil)
+      _index = current_track_index(_track)
+      _index.nil? ? [] : self[_index+1...self.size]
     end
 
     def next_track
@@ -23,8 +24,9 @@ module KyanJukebox
 
     private
 
-    def current_track_index
-      @current_track_index ||= index { |track| track.file == current_track }
+    def current_track_index(_current=nil)
+      _track = _current.nil? ? current_track : _current
+      index { |track| track.file == _track }
     end
   end
 end
